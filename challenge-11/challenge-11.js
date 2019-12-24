@@ -1,3 +1,5 @@
+(function(){
+
 // Envolva todo o código desse arquivo em uma IIFE (incluindo esse comentário).
 
 /*
@@ -9,12 +11,34 @@ Qual loop você deve usar para que essa mensagem seja mostrada no console?
 */
 // ?
 
+var once=false, x=0;
+
+do{
+    ++x;
+    if(x<5){
+        once=true;
+    }
+    else{
+        once=false;
+        console.log('Entrou ao menos uma vez');
+    }
+}
+while(once===true);
+
 /*
 Crie um objeto chamado `person`, que receba as seguintes propriedades:
 - 'name', 'age', 'weight' e 'birthday'. Preencha com os valores corretos
 para o nome, idade, peso e data de nascimento dessa pessoa.
 */
 // ?
+
+var person = {
+    name: 'Rodrigo',
+    age: 24,
+    weight: 63,
+    birthday: '05'
+};
+
 
 /*
 Use um loop para percorrer o objeto criado acima, mostrando no console
@@ -27,6 +51,14 @@ Após o loop, mostre a frase:
 */
 // ?
 
+var counter=0;
+for (var prop in person){
+    console.log('The ' + prop + ' of person is ' + person[prop]);
+    counter++;
+}
+console.log('The person has ' + counter +' properties\n\n');
+
+
 /*
 Crie uma função chamada `moreThan`, que vai verificar se a pessoa (objeto
 criado acima) é mais velha que a idade passada por parâmetro.
@@ -36,6 +68,13 @@ Após a função, mostrar a mensagem no console:
 */
 // ?
 
+x=25;
+function moreThan(age, x){
+    return age>x;
+}
+console.log('The person has more than ' + x + ' years old? ' + moreThan(person.age, x) + '\n');
+
+
 /*
 Faça um loop de 0 a 20, que adicione cada número como um item de um
 array chamado `numbers`. Se o contador for maior que 10, saia do loop.
@@ -43,6 +82,12 @@ Mostre no console os números no array.
 */
 console.log( 'De 0 a 10:' );
 // ?
+
+var numbers=[];
+for(var i=0; i<=10; i++){
+    numbers.push(i);
+}
+console.log(numbers);
 
 /*
 Faça outro loop de 0 a 20, que adicione a um array chamado `numbers` (já
@@ -52,3 +97,15 @@ Mostrar no console os números do array.
 */
 console.log( 'Pares de 0 a 20:' );
 // ?
+while(numbers.length !== 0){
+    numbers.shift();
+}
+
+for(var i=0; i<=20; i++){
+    if(i%2===0){
+        numbers.push(i)
+    }
+}
+console.log(numbers);
+
+}())
