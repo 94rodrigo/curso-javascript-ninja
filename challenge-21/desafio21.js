@@ -27,7 +27,7 @@ dado ao elemento HTML deve definir o que o elemento é ou o que ele faz.
     $campotexto.value = 0;
     function timer(){
         if(ligado){
-            console.log(cont++);
+            cont++;
             temporizador = setTimeout(timer, 1000);
             $campotexto.value = cont;
         }
